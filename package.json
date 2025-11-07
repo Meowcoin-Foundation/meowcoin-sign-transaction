@@ -1,7 +1,7 @@
 {
   "name": "@meowcoin-foundation/meowcoin-sign-transaction",
   "description": "Signs a Meowcoin transaction",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "source": "index.ts",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",

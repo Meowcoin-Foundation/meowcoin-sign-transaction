@@ -1,55 +1,52 @@
-# ravencoin-sign-transaction
+# meowcoin-sign-transaction
 
-Signs a Ravencoin transaction
+Signs raw Meowcoin transactions (standard MEWC or assets) using nothing but JavaScript.
 
-The sole purpose of this project is to enable us to
-"Sign MEWC or asset transfer transactions in pure JavaScript"
- 
+## Install
 
-## How to use
-
-The sign method has four arguments
-1) The network "string", can be "MEWC" | "MEWC-test",
-2) The raw transaction (in hex)
-3) An array of UTXO objects to use
-4) Private keys. An object with "address" as key and "WIF" as value
-
-returns a signed transaction (hex), after that it is up to you to publish it on the network
 ```
-import Signer from "@ravenrebels/ravencoin-sign-transaction";
+npm install @meowcoin-foundation/meowcoin-sign-transaction
+```
 
-const raw =
-  "0200000002fe6cfe20184b592849231eea8167e3de073b6ec1b8218c2ef36838a4e07dd11c0200000000ffffffff28c32b825b14251708ea39c0ac706bd3d933778d7838d01b678b045a48e219950000000000ffffffff0200000000000000003a76a91416014dfb02a07417cbf8c0366ee5ae0a29d5878f88acc01e72766e74114652454e2f59554c45544944453230323100e1f5050000000075000e2707000000001976a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac00000000";
+## Quick start
+
+```ts
+import Signer from "@meowcoin-foundation/meowcoin-sign-transaction";
+
+const network = "mewc"; // or "mewc-test"
+
+const rawUnsignedTransaction =
+  "02000000010d5fc31678777ee0c338379325df8cd0bc75249a607c408de6c012fa007c50ae0100000000ffffffff0200e40b54020000001976a9141239cd8e03d180a55b75763f9ef7424b7e2eee8f88acc0958bc42e0800001976a9147ba628b84127e132b1352022b2bb58eaeaed340888ac00000000";
+
 const UTXOs = [
   {
-    address: "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi",
+    address: "mgRYHdMqD1gwm9QQqBRUPcDKdEZ9oVeChA",
     assetName: "MEWC",
-    txid: "1cd17de0a43868f32e8c21b8c16e3b07dee36781ea1e234928594b1820fe6cfe",
-    outputIndex: 2,
-    script: "76a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac",
-    satoshis: 122000000,
-    height: 2670673,
-  },
-  {
-    address: "RSuQSgXXr1z4gKommSqhHLffiNxnSE3Bwn",
-    assetName: "FREN/YULETIDE2021",
-    txid: "9519e2485a048b671bd038788d7733d9d36b70acc039ea081725145b822bc328",
-    outputIndex: 0,
-    script:
-      "76a914c1536f46fa2fa04be210406529be283c1c85e4ce88acc01e72766e74114652454e2f59554c45544944453230323100e1f5050000000075",
-    satoshis: 100000000,
-    height: 2670669,
+    txid: "ae507c00fa12c0e68d407c609a2475bcd08cdf25933738c3e07e777816c35f0d",
+    outputIndex: 1,
+    script: "76a91409f2017224efdaf3633d26b1cf11a1df418496f688ac",
+    satoshis: 9006961000000,
   },
 ];
+
 const privateKeys = {
-  RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi:
-    "L2GD7txjmdKSTy7mBq2FowZusjdWP679ttWSRfj4eLBu2usTWMV9",
-  RSuQSgXXr1z4gKommSqhHLffiNxnSE3Bwn:
-    "Kxj2xMvLbcXeGzuSrZLtpnZWzXnTXnhtuCQRQhKLjN7bSQXuakyh",
+  mgRYHdMqD1gwm9QQqBRUPcDKdEZ9oVeChA:
+    "Hhk5AVqybqe3TyyCUhE6DjE7VrdMnxQzYLxLXa4vAknH3n7ge8T8",
 };
-const signed = Signer.sign("MEWC", raw, UTXOs, privateKeys);
-console.log(signed);
 
+const signed = Signer.sign(network, rawUnsignedTransaction, UTXOs, privateKeys);
 
+console.log(signed); // hex string ready to broadcast
 ```
+
+### API
+
+`Signer.sign(network, rawTxHex, utxos, privateKeys)`
+
+- `network`: `"mewc" | "mewc-test" | "evr" | "evr-test"`
+- `rawTxHex`: string – unsigned transaction hex
+- `utxos`: array of objects containing `address`, `txid`, `outputIndex`, `script`, and `satoshis`
+- `privateKeys`: object keyed by address with WIF strings for the selected network
+
+Returns the signed transaction hex. Broadcasting is up to you (RPC, electrum, etc.).
 
