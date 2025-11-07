@@ -2,7 +2,7 @@ import * as bitcoin from "bitcoinjs-lib";
 import { ECPairFactory } from "ecpair";
 import ecc from "@bitcoinerlab/secp256k1";
 
-import { rvn, evr, toBitcoinJS, MainNet, TestNet } from "@hyperbitjs/chains";
+import { mewc, evr, toBitcoinJS, MainNet, TestNet } from "@hyperbitjs/chains";
 
 const ECPair = ECPairFactory(ecc);
 
@@ -18,14 +18,14 @@ interface IUTXO {
 }
 
 export function sign(
-  network: "rvn" | "rvn-test" | "evr" | "evr-test",
+  network: "mewc" | "mewc-test" | "evr" | "evr-test",
   rawTransactionHex: string,
   UTXOs: Array<IUTXO>,
   privateKeys: Record<string, string>
 ): string {
   const networkMapper = {
-    rvn: toBitcoinJS(rvn.mainnet as MainNet),
-    "rvn-test": toBitcoinJS(rvn.testnet as TestNet),
+    mewc: toBitcoinJS(mewc.mainnet as MainNet),
+    "mewc-test": toBitcoinJS(mewc.testnet as TestNet),
     evr: toBitcoinJS(evr.mainnet as MainNet),
     "evr-test": toBitcoinJS(evr.testnet as TestNet),
   };

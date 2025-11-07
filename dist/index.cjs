@@ -27,8 +27,8 @@ $parcel$export(module.exports, "default", () => $80bd448eb6ea085b$export$2e2bcd8
 const $80bd448eb6ea085b$var$ECPair = (0, $g5Y9E$ecpair.ECPairFactory)((0, ($parcel$interopDefault($g5Y9E$bitcoinerlabsecp256k1))));
 function $80bd448eb6ea085b$export$c5552dfdbc7cec71(network, rawTransactionHex, UTXOs, privateKeys) {
     const networkMapper = {
-        rvn: (0, $g5Y9E$hyperbitjschains.toBitcoinJS)((0, $g5Y9E$hyperbitjschains.rvn).mainnet),
-        "rvn-test": (0, $g5Y9E$hyperbitjschains.toBitcoinJS)((0, $g5Y9E$hyperbitjschains.rvn).testnet),
+        mewc: (0, $g5Y9E$hyperbitjschains.toBitcoinJS)((0, $g5Y9E$hyperbitjschains.mewc).mainnet),
+        "mewc-test": (0, $g5Y9E$hyperbitjschains.toBitcoinJS)((0, $g5Y9E$hyperbitjschains.mewc).testnet),
         evr: (0, $g5Y9E$hyperbitjschains.toBitcoinJS)((0, $g5Y9E$hyperbitjschains.evr).mainnet),
         "evr-test": (0, $g5Y9E$hyperbitjschains.toBitcoinJS)((0, $g5Y9E$hyperbitjschains.evr).testnet)
     };

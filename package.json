@@ -1,7 +1,7 @@
 {
-  "name": "@ravenrebels/ravencoin-sign-transaction",
-  "description": "Signs a Ravencoin transaction",
-  "version": "1.1.1",
+  "name": "@meowcoin-foundation/meowcoin-sign-transaction",
+  "description": "Signs a Meowcoin transaction",
+  "version": "1.0.0",
   "source": "index.ts",
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
@@ -12,17 +12,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ravenrebels/ravencoin-sign-transaction.git"
+    "url": "git+https://github.com/meowcoin-foundation/meowcoin-sign-transaction.git"
   },
   "keywords": [
-    "ravencoin"
+    "meowcoin"
   ],
-  "author": "Raven Rebels - Dick Henrik Larsson",
+  "author": "Meowcoin Foundation / Zach Price",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ravenrebels/ravencoin-sign-transaction/issues"
+    "url": "https://github.com/meowcoin-foundation/meowcoin-sign-transaction/issues"
   },
-  "homepage": "https://github.com/ravenrebels/ravencoin-sign-transaction#readme",
+  "homepage": "https://github.com/meowcoin-foundation/meowcoin-sign-transaction#readme",
   "dependencies": {
     "@bitcoinerlab/secp256k1": "1.2.0",
     "@hyperbitjs/chains": "1.10.2",

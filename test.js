@@ -1,9 +1,9 @@
 const Signer = require("./dist/index.cjs");
 
-test("Verify RVN sign transaction", () => {
-  const testData = require("./mock/test_rvn_transaction.json");
-  const network = "rvn-test";
-  const UTXOs = testData.debug.rvnUTXOs;
+test("Verify MEWC sign transaction", () => {
+  const testData = require("./mock/test_mewc_transaction.json");
+  const network = "mewc";
+  const UTXOs = testData.debug.mewcUTXOs;
   const privateKeys = testData.debug.privateKeys;
   const rawUnsignedTransaction = testData.debug.rawUnsignedTransaction;
 
@@ -12,10 +12,10 @@ test("Verify RVN sign transaction", () => {
 
   expect(asdf).toBe(expectedResult);
 });
-test("Verify RVN sign ASSET transaction", () => {
+test("Verify MEWC sign ASSET transaction", () => {
   const testData = require("./mock/test_asset_transaction.json");
-  const network = "rvn-test";
-  const UTXOs = testData.debug.rvnUTXOs.concat(testData.debug.assetUTXOs);
+  const network = "mewc";
+  const UTXOs = testData.debug.mewcUTXOs.concat(testData.debug.assetUTXOs);
 
   const privateKeys = testData.debug.privateKeys;
   const rawUnsignedTransaction = testData.debug.rawUnsignedTransaction;

@@ -3,13 +3,13 @@
 Signs a Ravencoin transaction
 
 The sole purpose of this project is to enable us to
-"Sign RVN or asset transfer transactions in pure JavaScript"
+"Sign MEWC or asset transfer transactions in pure JavaScript"
  
 
 ## How to use
 
 The sign method has four arguments
-1) The network "string", can be "rvn" | "rvn-test" | "evr" | "evr-test",
+1) The network "string", can be "MEWC" | "MEWC-test",
 2) The raw transaction (in hex)
 3) An array of UTXO objects to use
 4) Private keys. An object with "address" as key and "WIF" as value
@@ -23,7 +23,7 @@ const raw =
 const UTXOs = [
   {
     address: "RTPSdYw3iB93L6Hb9xWd1ixVxPYu1QePdi",
-    assetName: "RVN",
+    assetName: "MEWC",
     txid: "1cd17de0a43868f32e8c21b8c16e3b07dee36781ea1e234928594b1820fe6cfe",
     outputIndex: 2,
     script: "76a914c6a0e8557c7567a4d9cc84574c34fbb62ece3c9688ac",
@@ -47,7 +47,7 @@ const privateKeys = {
   RSuQSgXXr1z4gKommSqhHLffiNxnSE3Bwn:
     "Kxj2xMvLbcXeGzuSrZLtpnZWzXnTXnhtuCQRQhKLjN7bSQXuakyh",
 };
-const signed = Signer.sign("rvn", raw, UTXOs, privateKeys);
+const signed = Signer.sign("MEWC", raw, UTXOs, privateKeys);
 console.log(signed);
 
 
